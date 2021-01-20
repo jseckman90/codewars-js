@@ -44,15 +44,30 @@
 // }
 // checkPalindrome("hello");
 
-function adjacentElementsProduct(inputArray) {
-  let c = inputArray[0] * inputArray[1];
-  let p = c;
-  for (var i = 1; i < inputArray.length; i++) {
-    let c = inputArray[i] * inputArray[i + 1];
-    if (c > p) {
-      p = c;
-    }
-  }
-  return p;
+// Given an array of integers, find the pair of adjacent elements that has the largest product and return that product.
+
+// function adjacentElementsProduct(inputArray) {
+//   let c = inputArray[0] * inputArray[1];
+//   let p = c;
+//   for (i = 1; i < inputArray.length; i++) {
+//     let c = inputArray[i] * inputArray[i + 1];
+//     if (c > p) {
+//       p = c;
+//     }
+//   }
+//   return p;
+// }
+// console.log(adjacentElementsProduct([-23, 4, -3, 8, -12]));
+
+// Below we will define an n-interesting polygon. Your task is to find the area of a polygon for a given n.
+
+// A 1-interesting polygon is just a square with a side of length 1. An n-interesting polygon is obtained by taking the n - 1-interesting polygon and appending 1-interesting polygons to its rim, side by side. You can see the 1-, 2-, 3- and 4-interesting polygons in the picture below.
+
+function shapeArea(n) {
+  square = n * n;
+  remainder = (n - 1) * (n - 1);
+  result = square + remainder;
+
+  return result;
 }
-console.log(adjacentElementsProduct([-23, 4, -3, 8, -12]));
+shapeArea(3);
