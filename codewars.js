@@ -63,11 +63,24 @@
 
 // A 1-interesting polygon is just a square with a side of length 1. An n-interesting polygon is obtained by taking the n - 1-interesting polygon and appending 1-interesting polygons to its rim, side by side. You can see the 1-, 2-, 3- and 4-interesting polygons in the picture below.
 
-function shapeArea(n) {
-  square = n * n;
-  remainder = (n - 1) * (n - 1);
-  result = square + remainder;
+// function shapeArea(n) {
+//   square = n * n;
+//   remainder = (n - 1) * (n - 1);
+//   result = square + remainder;
 
-  return result;
+//   return result;
+// }
+// shapeArea(3);
+
+function makeArrayConsecutive2(statues) {
+  statues.sort((a, b) => {
+    return a - b;
+  });
+  const arrLength = statues.length;
+  const highNum = statues[arrLength - 1];
+  const lowNum = statues[0];
+  const minStatues = highNum - lowNum + 1 - arrLength;
+  return minStatues;
 }
-shapeArea(3);
+
+makeArrayConsecutive2([6, 2, 3, 8]);
