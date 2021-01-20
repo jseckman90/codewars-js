@@ -43,3 +43,16 @@
 //   }
 // }
 // checkPalindrome("hello");
+
+function adjacentElementsProduct(inputArray) {
+  let c = inputArray[0] * inputArray[1];
+  let p = c;
+  for (var i = 1; i < inputArray.length; i++) {
+    let c = inputArray[i] * inputArray[i + 1];
+    if (c > p) {
+      p = c;
+    }
+  }
+  return p;
+}
+console.log(adjacentElementsProduct([-23, 4, -3, 8, -12]));
