@@ -1,20 +1,11 @@
-const XO = (str) => {
-  str = str.toLowerCase();
-  const characters = str.split("");
-  const charO = [];
-  const charX = [];
+// Write a program that finds the summation of every number from 1 to num. The number will always be a positive integer greater than 0.
 
-  characters.map((char) => {
-    if (char === "x") {
-      charX.push(char);
-    } else if (char === "o") {
-      charO.push(char);
-    } else {
-      console.log("letter not x or o");
-    }
-  });
-
-  charX.length === charO.length ? true : false;
+const findSummation = (num) => {
+  let result = 0;
+  for (i = 0; i <= num; i++) {
+    result += i;
+  }
+  return result;
 };
 
-XO("xoxoxo");
+findSummation(8);
