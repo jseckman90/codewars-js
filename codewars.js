@@ -91,19 +91,50 @@
 
 // Note: sequence a0, a1, ..., an is considered to be a strictly increasing if a0 < a1 < ... < an. Sequence containing only one element is also considered to be strictly increasing.
 
-function almostIncreasingSequence(sequence) {
-  let nonIncreaseNum = [];
+// const almostIncreasingSequence = (sequence) => {
+//   let nonIncreaseNum = [];
 
-  for (i = 1; i < sequence.length; i++) {
-    if (sequence[i] <= sequence[i - 1]) {
-      nonIncreaseNum.push(sequence[i]);
-      if (nonIncreaseNum.length > 1) return false;
-      if (sequence[i] <= sequence[i - 2] && sequence[i + 1] <= sequence[i - 1])
-        return false;
+//   for (i = 1; i < sequence.length; i++) {
+//     if (sequence[i] <= sequence[i - 1]) {
+//       nonIncreaseNum.push(sequence[i]);
+//       if (nonIncreaseNum.length > 1) return false;
+//       if (sequence[i] <= sequence[i - 2] && sequence[i + 1] <= sequence[i - 1])
+//         return false;
+//     }
+//   }
+
+//   return true;
+// }
+
+// almostIncreasingSequence([1, 2, 3, 4, 99, 5, 6]);
+
+// After becoming famous, the CodeBots decided to move into a new building together. Each of the rooms has a different cost, and some of them are free, but there's a rumour that all the free rooms are haunted! Since the CodeBots are quite superstitious, they refuse to stay in any of the free rooms, or any of the rooms below any of the free rooms.
+
+const matrixElementsSum = (matrix) => {
+  sum = 0;
+  //first loop goes through the outside array
+  for (i = 0; i < matrix.length; i++) {
+    //second loop goes through the inside arrays
+    for (j = 0; j < matrix[i].length; j++) {
+      if (matrix[i][j] === 0) {
+        //set every value in same column to 0 if it is below the current value
+        for (k = i + 1; k < matrix.length; k++) {
+          matrix[k][j] = 0;
+          console.log(matrix);
+        }
+      }
     }
   }
+  for (x = 0; x < matrix.length; x++) {
+    for (y = 0; y < matrix[x].length; y++) {
+      sum += matrix[x][y];
+    }
+  }
+  console.log(sum);
+};
 
-  return true;
-}
-
-almostIncreasingSequence([1, 2, 3, 4, 99, 5, 6]);
+matrixElementsSum([
+  [0, 1, 1, 2],
+  [0, 5, 0, 0],
+  [2, 0, 3, 3],
+]);
