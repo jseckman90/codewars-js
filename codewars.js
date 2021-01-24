@@ -74,15 +74,53 @@
 
 // Ratiorg got statues of different sizes as a present from CodeMaster for his birthday, each statue having an non-negative integer size. Since he likes to make things perfect, he wants to arrange them from smallest to largest so that each statue will be bigger than the previous one exactly by 1. He may need some additional statues to be able to accomplish that. Help him figure out the minimum number of additional statues needed.
 
-function makeArrayConsecutive2(statues) {
-  statues.sort((a, b) => {
-    return a - b;
-  });
-  const arrLength = statues.length;
-  const highNum = statues[arrLength - 1];
-  const lowNum = statues[0];
-  const minStatues = highNum - lowNum + 1 - arrLength;
-  return minStatues;
+// function makeArrayConsecutive2(statues) {
+//   statues.sort((a, b) => {
+//     return a - b;
+//   });
+//   const arrLength = statues.length;
+//   const highNum = statues[arrLength - 1];
+//   const lowNum = statues[0];
+//   const minStatues = highNum - lowNum + 1 - arrLength;
+//   return minStatues;
+// }
+
+// makeArrayConsecutive2([6, 2, 3, 8]);
+
+// Given a sequence of integers as an array, determine whether it is possible to obtain a strictly increasing sequence by removing no more than one element from the array.
+
+// Note: sequence a0, a1, ..., an is considered to be a strictly increasing if a0 < a1 < ... < an. Sequence containing only one element is also considered to be strictly increasing.
+
+function almostIncreasingSequence(sequence) {
+  console.log(sequence);
+  const deleteNumArr = [];
+  if (sequence[0] >= sequence[1]) {
+    deleteNumArr.push(sequence[0]);
+  }
+  for (i = 0; i < sequence.length; i++) {
+    if (sequence[i] > sequence[i - 1]) {
+      console.log(
+        sequence[i] + " is greater than previous index of " + sequence[i - 1]
+      );
+    } else if (sequence[i] <= sequence[i - 1]) {
+      console.log(
+        sequence[i] +
+          " is less than or equal to than previous index of " +
+          sequence[i - 1]
+      );
+      deleteNumArr.push(sequence[i]);
+      if (sequence[i + 1] <= sequence[i - 1]) {
+        deleteNumArr.push(sequence[i + 1]);
+      }
+    }
+  }
+
+  console.log(deleteNumArr);
+  if (deleteNumArr.length > 1) {
+    return false;
+  } else {
+    return true;
+  }
 }
 
-makeArrayConsecutive2([6, 2, 3, 8]);
+almostIncreasingSequence([1, 1]);
