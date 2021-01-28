@@ -141,21 +141,41 @@
 
 // Given an array of strings, return another array containing all of its longest strings.
 
-const allLongestStrings = (inputArray) => {
-  let strLng = 0;
-  let newArr = [];
-  for (i = 0; i < inputArray.length; i++) {
-    if (inputArray[i].length > strLng) {
-      strLng = inputArray[i].length;
+// const allLongestStrings = (inputArray) => {
+//   let strLng = 0;
+//   let newArr = [];
+//   for (i = 0; i < inputArray.length; i++) {
+//     if (inputArray[i].length > strLng) {
+//       strLng = inputArray[i].length;
+//     }
+//   }
+//   console.log(strLng);
+//   for (j = 0; j < inputArray.length; j++) {
+//     if (inputArray[j].length >= strLng) {
+//       newArr.push(inputArray[j]);
+//     }
+//   }
+//   return console.log(newArr);
+// };
+
+// allLongestStrings(["aba", "aa", "ad", "vcd", "aba", "d;safkljdslkfj"]);
+
+// Given two strings, find the number of common characters between them.
+
+const commonCharacterCount = (s1, s2) => {
+  let count = 0;
+  const stringTwo = s2.split("");
+  for (letter of s1) {
+    console.log(s1);
+    console.log(stringTwo);
+    let index = stringTwo.findIndex((s) => s === letter);
+    if (index >= 0) {
+      count++;
+      stringTwo.splice(index, 1);
     }
+    console.log(stringTwo);
   }
-  console.log(strLng);
-  for (j = 0; j < inputArray.length; j++) {
-    if (inputArray[j].length >= strLng) {
-      newArr.push(inputArray[j]);
-    }
-  }
-  return console.log(newArr);
+  return console.log(count);
 };
 
-allLongestStrings(["aba", "aa", "ad", "vcd", "aba", "d;safkljdslkfj"]);
+commonCharacterCount("aabcc", "adcaa");
