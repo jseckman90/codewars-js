@@ -196,19 +196,47 @@
 
 // The rating for Alice's challenge is the triplet a = (a[0], a[1], a[2]), and the rating for Bob's challenge is the triplet b = (b[0], b[1], b[2]).
 
-const compareTriplets = (a, b) => {
-  let alice = 0;
-  let bob = 0;
+// const compareTriplets = (a, b) => {
+//   let alice = 0;
+//   let bob = 0;
 
-  for (i = 0; i < a.length; i++) {
-    if (a[i] > b[i]) {
-      alice += 1;
-    } else if (b[i] > a[i]) {
-      bob += 1;
+//   for (i = 0; i < a.length; i++) {
+//     if (a[i] > b[i]) {
+//       alice += 1;
+//     } else if (b[i] > a[i]) {
+//       bob += 1;
+//     }
+//   }
+//   let comp = [alice, bob];
+//   console.log(comp);
+// };
+
+// compareTriplets([5, 6, 7], [3, 6, 10]);
+
+// Given a square matrix, calculate the absolute difference between the sums of its diagonals.
+
+// For example, the square matrix  is shown below:
+
+const diagonalDifference = (matrix) => {
+  let n = matrix.length;
+  let sum1 = 0;
+  let sum2 = 0;
+
+  for (i = 0; i < n; i++) {
+    for (j = 0; j < n; j++) {
+      if (i === j) {
+        sum1 += matrix[i][j];
+      }
+      if (i + j === n - 1) {
+        sum2 += matrix[i][j];
+      }
     }
   }
-  let comp = [alice, bob];
-  console.log(comp);
+  return Math.abs(sum1 - sum2);
 };
 
-compareTriplets([5, 6, 7], [3, 6, 10]);
+diagonalDifference([
+  [1, 21, 3],
+  [4, 7, 6],
+  [6, 8, 13],
+]);
