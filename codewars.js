@@ -162,20 +162,32 @@
 
 // Given two strings, find the number of common characters between them.
 
-const commonCharacterCount = (s1, s2) => {
-  let count = 0;
-  const stringTwo = s2.split("");
-  for (letter of s1) {
-    console.log(s1);
-    console.log(stringTwo);
-    let index = stringTwo.findIndex((s) => s === letter);
-    if (index >= 0) {
-      count++;
-      stringTwo.splice(index, 1);
-    }
-    console.log(stringTwo);
+// const commonCharacterCount = (s1, s2) => {
+//   let count = 0;
+//   const stringTwo = s2.split("");
+//   for (letter of s1) {
+//     console.log(s1);
+//     console.log(stringTwo);
+//     let index = stringTwo.findIndex((s) => s === letter);
+//     if (index >= 0) {
+//       count++;
+//       stringTwo.splice(index, 1);
+//     }
+//     console.log(stringTwo);
+//   }
+//   return console.log(count);
+// };
+
+// commonCharacterCount("aabcc", "adcaa");
+
+// Given an array of integers, find the sum of its elements.
+
+const sumArray = (ar) => {
+  let sum = 0;
+  for (i = 0; i < ar.length; i++) {
+    sum += ar[i];
   }
-  return console.log(count);
+  return sum;
 };
 
-commonCharacterCount("aabcc", "adcaa");
+sumArray([1, 2, 3]);
