@@ -217,26 +217,49 @@
 
 // For example, the square matrix  is shown below:
 
-const diagonalDifference = (matrix) => {
-  let n = matrix.length;
-  let sum1 = 0;
-  let sum2 = 0;
+// const diagonalDifference = (matrix) => {
+//   let n = matrix.length;
+//   let sum1 = 0;
+//   let sum2 = 0;
 
-  for (i = 0; i < n; i++) {
-    for (j = 0; j < n; j++) {
-      if (i === j) {
-        sum1 += matrix[i][j];
-      }
-      if (i + j === n - 1) {
-        sum2 += matrix[i][j];
-      }
+//   for (i = 0; i < n; i++) {
+//     for (j = 0; j < n; j++) {
+//       if (i === j) {
+//         sum1 += matrix[i][j];
+//       }
+//       if (i + j === n - 1) {
+//         sum2 += matrix[i][j];
+//       }
+//     }
+//   }
+//   return Math.abs(sum1 - sum2);
+// };
+
+// diagonalDifference([
+//   [1, 21, 3],
+//   [4, 7, 6],
+//   [6, 8, 13],
+// ]);
+
+// Given an array of integers, calculate the ratios of its elements that are positive, negative, and zero. Print the decimal value of each fraction on a new line with  places after the decimal.
+
+const plusMinus = (arr) => {
+  const n = arr.length;
+  let numPos = 0;
+  let numZero = 0;
+  let numNeg = 0;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] > 0) {
+      numPos++;
+    } else if (arr[i] < 0) {
+      numNeg++;
+    } else {
+      numZero++;
     }
   }
-  return Math.abs(sum1 - sum2);
+  console.log((numPos / n).toFixed(6));
+  console.log((numNeg / n).toFixed(6));
+  console.log((numZero / n).toFixed(6));
 };
 
-diagonalDifference([
-  [1, 21, 3],
-  [4, 7, 6],
-  [6, 8, 13],
-]);
+plusMinus([1, 4, 0, -5, -2, 2]);
