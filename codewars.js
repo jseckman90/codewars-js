@@ -243,23 +243,41 @@
 
 // Given an array of integers, calculate the ratios of its elements that are positive, negative, and zero. Print the decimal value of each fraction on a new line with  places after the decimal.
 
-const plusMinus = (arr) => {
-  const n = arr.length;
-  let numPos = 0;
-  let numZero = 0;
-  let numNeg = 0;
-  for (let i = 0; i < n; i++) {
-    if (arr[i] > 0) {
-      numPos++;
-    } else if (arr[i] < 0) {
-      numNeg++;
-    } else {
-      numZero++;
-    }
-  }
-  console.log((numPos / n).toFixed(6));
-  console.log((numNeg / n).toFixed(6));
-  console.log((numZero / n).toFixed(6));
-};
+// const plusMinus = (arr) => {
+//   const n = arr.length;
+//   let numPos = 0;
+//   let numZero = 0;
+//   let numNeg = 0;
+//   for (let i = 0; i < n; i++) {
+//     if (arr[i] > 0) {
+//       numPos++;
+//     } else if (arr[i] < 0) {
+//       numNeg++;
+//     } else {
+//       numZero++;
+//     }
+//   }
+//   console.log((numPos / n).toFixed(6));
+//   console.log((numNeg / n).toFixed(6));
+//   console.log((numZero / n).toFixed(6));
+// };
 
-plusMinus([1, 4, 0, -5, -2, 2]);
+// plusMinus([1, 4, 0, -5, -2, 2]);
+
+// This is a staircase of size :
+
+// #
+// ##
+// ###
+// ####
+// Its base and height are both equal to . It is drawn using # symbols and spaces. The last line is not preceded by any spaces.
+
+// Write a program that prints a staircase of size .
+
+const staircase = (n) => {
+  let hashtag = "#";
+  for (let i = 1; i <= n; i++) {
+    console.log(" ".repeat(n - i) + hashtag.repeat(i));
+  }
+};
+staircase(5);
